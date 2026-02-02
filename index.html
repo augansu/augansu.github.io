@@ -121,6 +121,16 @@
     .section p{margin:0 0 10px}
     .section p:last-child{margin-bottom:0}
 
+    .note{
+     margin: 10px 0 0;
+     color: var(--muted);
+     font-size: 0.95rem;
+    }
+    .note strong{
+     color: var(--text);
+     font-weight: 600;
+    }
+
     /* Featured Project Card */
     .project{
       margin-top: 14px;
@@ -231,6 +241,10 @@
         <p>
           A production-style analytics platform designed for a fictional SaaS company (<strong>NimbusSoft</strong>),
           reflecting patterns and approaches I have implemented in real SaaS analytics environments.
+        </p>
+
+        <p class="note">
+          <strong>Design note:</strong> Governance, modeling patterns, and performance tradeoffs mirror real-world implementations, using synthetic data for safe public sharing.
         </p>
 
         <ul class="tags">
