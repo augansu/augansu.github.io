@@ -145,9 +145,13 @@
       font-size: .92rem;
       margin:0 0 6px;
     }
+    
     .project h3{
       margin:0 0 8px;
-      font-size: 1.15rem;
+      font-size: 1.25rem;   /* was 1.15rem */
+      letter-spacing: -0.01em;
+    }
+
     }
     .tags{
       display:flex;
@@ -189,6 +193,12 @@
     }
     .footer .small{opacity:.9}
 
+    .divider{
+     margin: 18px 6px 0;
+     height: 1px;
+     background: var(--line);
+   }
+    
     @media (max-width: 760px){
       .header{flex-direction:column}
       .actions{width:100%}
@@ -275,6 +285,8 @@
         <li>Analytics governance &amp; metric discipline</li>
       </ul>
     </div>
+
+    <div class="divider"></div>
 
     <!-- Next Projects (optional placeholder) -->
     <div class="section">
