@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,81 +5,281 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Augustine Ansu — Analytics Portfolio</title>
   <meta name="description" content="Senior Power BI Architect & Data Analyst. Portfolio showcasing executive analytics, semantic modeling, DAX performance, and governance." />
+
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      color: #1f2328;
+    :root{
+      --bg:#0b1220;
+      --surface:#0f172a;
+      --card:#111c33;
+      --text:#e5e7eb;
+      --muted:#a7b0c0;
+      --line:rgba(255,255,255,.08);
+      --accent:#60a5fa;
+      --accent2:#22c55e;
     }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.2em;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(96,165,250,.25), transparent 60%),
+                  radial-gradient(900px 500px at 80% 0%, rgba(34,197,94,.14), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
     }
-    h2 {
-      margin-top: 2em;
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{
+      max-width: 980px;
+      margin: 42px auto;
+      padding: 0 22px 50px;
     }
-    a {
-      color: #0969da;
-      text-decoration: none;
+
+    /* Header */
+    .header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 16px;
+      padding: 26px 26px 22px;
+      border:1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
-    a:hover {
-      text-decoration: underline;
+    .title{
+      margin:0;
+      font-size: 2.35rem;
+      letter-spacing: -0.02em;
+      line-height:1.15;
     }
-    .subtitle {
+    .subtitle{
+      margin:10px 0 0;
+      color:var(--muted);
       font-weight: 500;
-      color: #57606a;
     }
-    hr {
-      margin: 2em 0;
+    .pillbar{
+      margin-top: 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size: .92rem;
+      white-space:nowrap;
+    }
+    .pill strong{color:var(--text); font-weight:600}
+    .actions{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      min-width: 220px;
+    }
+    .btn{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      font-weight: 600;
+      text-decoration:none;
+    }
+    .btn:hover{ text-decoration:none; background: rgba(255,255,255,.06); }
+    .btn.primary{
+      background: rgba(96,165,250,.18);
+      border-color: rgba(96,165,250,.35);
+    }
+    .btn.primary:hover{
+      background: rgba(96,165,250,.28);
+    }
+
+    /* Sections */
+    .section{
+      margin-top: 22px;
+      padding: 22px 24px;
+      border:1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.02);
+    }
+    .section h2{
+      margin:0 0 12px;
+      font-size: 1.25rem;
+      letter-spacing: -.01em;
+    }
+    .section p{margin:0 0 10px}
+    .section p:last-child{margin-bottom:0}
+
+    /* Featured Project Card */
+    .project{
+      margin-top: 14px;
+      padding: 18px 18px 16px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border: 1px solid rgba(96,165,250,.22);
+    }
+    .project .kicker{
+      color: var(--muted);
+      font-weight: 600;
+      font-size: .92rem;
+      margin:0 0 6px;
+    }
+    .project h3{
+      margin:0 0 8px;
+      font-size: 1.15rem;
+    }
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin: 12px 0 14px;
+      padding:0;
+      list-style:none;
+    }
+    .tag{
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    .tag.good{
+      border-color: rgba(34,197,94,.35);
+      background: rgba(34,197,94,.12);
+      color: #c7f9d6;
+    }
+
+    /* Skills list */
+    ul{margin:10px 0 0 18px; color: var(--muted)}
+    li{margin: 6px 0}
+
+    /* Footer */
+    .footer{
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: .95rem;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:space-between;
+      align-items:center;
+      padding: 10px 6px 0;
+    }
+    .footer .small{opacity:.9}
+
+    @media (max-width: 760px){
+      .header{flex-direction:column}
+      .actions{width:100%}
+      .btn{width:100%}
     }
   </style>
 </head>
+
 <body>
+  <div class="wrap">
 
-  <h1>Augustine Ansu</h1>
-  <p class="subtitle">
-    Senior Power BI Architect & Data Analyst<br/>
-    Product, Operations & Executive Analytics
-  </p>
+    <!-- Header -->
+    <div class="header">
+      <div>
+        <h1 class="title">Augustine Ansu</h1>
+        <p class="subtitle">Senior Power BI Architect &amp; Data Analyst<br/>Product, Operations &amp; Executive Analytics</p>
 
-  <hr/>
+        <div class="pillbar">
+          <span class="pill"><strong>Power BI</strong> semantic model &amp; executive dashboards</span>
+          <span class="pill"><strong>DAX</strong> performance &amp; time intelligence</span>
+          <span class="pill"><strong>Governance</strong> KPI discipline &amp; curated measures</span>
+        </div>
+      </div>
 
-  <h2>About</h2>
-  <p>
-    I design <strong>production-grade analytics solutions</strong> that help leadership teams
-    understand performance, identify risk, and take action.
-    My work emphasizes strong semantic modeling, governance, and executive-focused storytelling.
-  </p>
+      <div class="actions">
+        <!-- Replace YOUR_LINKEDIN_HANDLE -->
+        <a class="btn primary" href="https://www.linkedin.com/in/YOUR_LINKEDIN_HANDLE/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="btn" href="https://github.com/augustineansu" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn" href="https://github.com/augustineansu/nimbussoft-saas-analytics-powerbi" target="_blank" rel="noreferrer">Flagship Project Repo</a>
+      </div>
+    </div>
 
-  <h2>Featured Project</h2>
-  <h3>SaaS Product & Support Analytics Platform (Power BI)</h3>
-  <p>
-    A production-style analytics platform designed for a fictional SaaS company (<strong>NimbusSoft</strong>),
-    reflecting patterns and approaches I have implemented in real SaaS analytics environments.
-  </p>
-  <p>
-    <a href="https://github.com/augansu/nimbussoft-saas-analytics-powerbi" target="_blank">
-      → View the NimbusSoft project repository
-    </a>
-  </p>
+    <!-- About -->
+    <div class="section">
+      <h2>About</h2>
+      <p>
+        I design <strong>production-grade analytics solutions</strong> that help leadership teams understand performance,
+        identify risk, and take action. My work emphasizes strong semantic modeling, governance, and executive-focused storytelling.
+      </p>
+    </div>
 
-  <h2>Skills & Focus Areas</h2>
-  <ul>
-    <li>Power BI (Desktop & Service)</li>
-    <li>Semantic data modeling (star schemas, conformed dimensions)</li>
-    <li>DAX design & performance optimization</li>
-    <li>Executive KPI frameworks</li>
-    <li>Analytics governance & metric discipline</li>
-  </ul>
+    <!-- Featured Project -->
+    <div class="section">
+      <h2>Featured Project</h2>
 
-  <h2>Contact</h2>
-  <p>
-    <a href="https://www.linkedin.com/in/augtweneboah-w20131201/" target="_blank">LinkedIn</a><br/>
-    <a href="https://github.com/augansu" target="_blank">GitHub</a>
-  </p>
+      <div class="project">
+        <p class="kicker">Power BI • SaaS Analytics • Executive Decision Support</p>
+        <h3>SaaS Product &amp; Support Analytics Platform (NimbusSoft)</h3>
 
+        <p>
+          A production-style analytics platform designed for a fictional SaaS company (<strong>NimbusSoft</strong>),
+          reflecting patterns and approaches I have implemented in real SaaS analytics environments.
+        </p>
+
+        <ul class="tags">
+          <li class="tag good">Star schema semantic model</li>
+          <li class="tag">Conformed dimensions</li>
+          <li class="tag">Role-playing dates</li>
+          <li class="tag">Measure catalog</li>
+          <li class="tag">Rolling windows</li>
+          <li class="tag">Risk scoring</li>
+          <li class="tag">Performance Analyzer</li>
+          <li class="tag">Power Query Diagnostics</li>
+        </ul>
+
+        <a class="btn primary" href="https://github.com/augustineansu/nimbussoft-saas-analytics-powerbi" target="_blank" rel="noreferrer">
+          → View the NimbusSoft project repository
+        </a>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="section">
+      <h2>Skills &amp; Focus Areas</h2>
+      <ul>
+        <li>Power BI (Desktop &amp; Service)</li>
+        <li>Semantic data modeling (star schemas, conformed dimensions)</li>
+        <li>DAX design &amp; performance optimization</li>
+        <li>Executive KPI frameworks</li>
+        <li>Analytics governance &amp; metric discipline</li>
+      </ul>
+    </div>
+
+    <!-- Next Projects (optional placeholder) -->
+    <div class="section">
+      <h2>Next Projects</h2>
+      <p>
+        Additional portfolio projects in <strong>healthcare</strong> and <strong>finance</strong> are planned.
+        This site will be updated as new work is published.
+      </p>
+    </div>
+
+    <div class="footer">
+      <span class="small">© <span id="year"></span> Augustine Ansu • Analytics Portfolio</span>
+      <span class="small">Built with GitHub Pages</span>
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
