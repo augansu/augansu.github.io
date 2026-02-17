@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Production-Grade SaaS Analytics | Power BI Dev/Test/Prod + Entra RLS</title>
-
-  <meta name="description" content="Senior Power BI Architect & Data Analyst. Production-grade SaaS analytics platform deployed using Dev/Test/Prod pipelines, governed semantic modeling, and dynamic Row-Level Security with Entra ID." />
+  <title>Augustine Ansu — Analytics Portfolio</title>
+  <meta name="description" content="Senior Power BI Architect & Data Analyst. Portfolio showcasing executive analytics, semantic modeling, DAX performance, governance, and Power BI Service deployment." />
 
   <style>
     :root{
@@ -18,6 +16,7 @@
       --line:rgba(255,255,255,.08);
       --accent:#60a5fa;
       --accent2:#22c55e;
+      --warn:#f59e0b;
     }
     *{box-sizing:border-box}
     body{
@@ -38,6 +37,7 @@
       padding: 0 22px 50px;
     }
 
+    /* Header */
     .header{
       display:flex;
       align-items:flex-start;
@@ -49,27 +49,23 @@
       background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
       box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
-
     .title{
       margin:0;
       font-size: 2.35rem;
       letter-spacing: -0.02em;
       line-height:1.15;
     }
-
     .subtitle{
       margin:10px 0 0;
       color:var(--muted);
       font-weight: 500;
     }
-
     .pillbar{
       margin-top: 14px;
       display:flex;
       flex-wrap:wrap;
       gap:8px;
     }
-
     .pill{
       display:inline-flex;
       align-items:center;
@@ -82,16 +78,13 @@
       font-size: .92rem;
       white-space:nowrap;
     }
-
     .pill strong{color:var(--text); font-weight:600}
-
     .actions{
       display:flex;
       flex-direction:column;
       gap:10px;
       min-width: 220px;
     }
-
     .btn{
       display:inline-flex;
       justify-content:center;
@@ -104,16 +97,23 @@
       font-weight: 600;
       text-decoration:none;
     }
-
+    .btn:hover{ text-decoration:none; background: rgba(255,255,255,.06); }
     .btn.primary{
       background: rgba(96,165,250,.18);
       border-color: rgba(96,165,250,.35);
     }
-
     .btn.primary:hover{
       background: rgba(96,165,250,.28);
     }
+    .btn.secondary{
+      background: rgba(34,197,94,.10);
+      border-color: rgba(34,197,94,.28);
+    }
+    .btn.secondary:hover{
+      background: rgba(34,197,94,.16);
+    }
 
+    /* Sections */
     .section{
       margin-top: 22px;
       padding: 22px 24px;
@@ -121,27 +121,43 @@
       border-radius: 18px;
       background: rgba(255,255,255,.02);
     }
-
     .section h2{
       margin:0 0 12px;
       font-size: 1.25rem;
       letter-spacing: -.01em;
     }
+    .section p{margin:0 0 10px}
+    .section p:last-child{margin-bottom:0}
 
+    .note{
+     margin: 10px 0 0;
+     color: var(--muted);
+     font-size: 0.95rem;
+    }
+    .note strong{
+     color: var(--text);
+     font-weight: 600;
+    }
+
+    /* Featured Project Card */
     .project{
       margin-top: 14px;
-      padding: 18px;
+      padding: 18px 18px 16px;
       border-radius: 16px;
       background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
       border: 1px solid rgba(96,165,250,.22);
       transition: box-shadow .25s ease, transform .25s ease;
     }
-
     .project:hover{
       box-shadow: 0 14px 40px rgba(0,0,0,.35);
       transform: translateY(-2px);
     }
-
+    .project .kicker{
+      color: var(--muted);
+      font-weight: 600;
+      font-size: .92rem;
+      margin:0 0 6px;
+    }
     .project h3{
       margin:0 0 8px;
       font-size: 1.25rem;
@@ -156,7 +172,6 @@
       padding:0;
       list-style:none;
     }
-
     .tag{
       padding: 6px 11px;
       border-radius: 999px;
@@ -165,26 +180,53 @@
       color: var(--muted);
       font-size: .9rem;
     }
-
     .tag.good{
       border-color: rgba(34,197,94,.35);
       background: rgba(34,197,94,.12);
       color: #c7f9d6;
     }
+    .tag.deploy{
+      border-color: rgba(96,165,250,.35);
+      background: rgba(96,165,250,.12);
+      color: #dbeafe;
+    }
 
+    .btnrow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 10px;
+    }
+
+    /* Skills list */
+    ul{margin:10px 0 0 18px; color: var(--muted)}
+    li{margin: 6px 0}
+
+    /* Footer */
     .footer{
       margin-top: 18px;
       color: var(--muted);
       font-size: .95rem;
       display:flex;
+      flex-wrap:wrap;
+      gap:10px;
       justify-content:space-between;
+      align-items:center;
       padding: 10px 6px 0;
     }
+    .footer .small{opacity:.9}
+
+    .divider{
+     margin: 18px 6px 0;
+     height: 1px;
+     background: var(--line);
+   }
 
     @media (max-width: 760px){
       .header{flex-direction:column}
       .actions{width:100%}
       .btn{width:100%}
+      .btnrow .btn{width:auto}
     }
   </style>
 </head>
@@ -192,69 +234,127 @@
 <body>
   <div class="wrap">
 
+    <!-- CONFIG: Update these URLs if needed -->
+    <script>
+      // If your repo uses /doc instead of /docs, change it here:
+      window.PORTFOLIO_REPO_URL = "https://github.com/augansu/nimbussoft-saas-analytics-powerbi";
+      window.POWERBI_DEPLOYMENT_DOC_URL = "https://github.com/augansu/nimbussoft-saas-analytics-powerbi/blob/main/docs/powerbi-service-deployment.md";
+    </script>
+
+    <!-- Header -->
     <div class="header">
       <div>
         <h1 class="title">Augustine Ansu</h1>
-        <p class="subtitle">
-          Senior Power BI Architect & Data Analyst<br/>
-          Enterprise SaaS Analytics • Deployment Architecture • Governed BI
-        </p>
+        <p class="subtitle">Senior Power BI Architect &amp; Data Analyst<br/>Product, Operations &amp; Executive Analytics</p>
 
         <div class="pillbar">
           <span class="pill"><strong>Power BI Service</strong> Dev/Test/Prod pipelines</span>
-          <span class="pill"><strong>Entra ID</strong> Dynamic Row-Level Security</span>
-          <span class="pill"><strong>Semantic Modeling</strong> Star schema & governance</span>
+          <span class="pill"><strong>Entra ID</strong> dynamic Row-Level Security</span>
+          <span class="pill"><strong>Semantic Modeling</strong> star schema &amp; governance</span>
         </div>
       </div>
 
       <div class="actions">
-        <a class="btn primary" href="https://www.linkedin.com/in/augtweneboah-w20131201/" target="_blank">LinkedIn</a>
-        <a class="btn" href="https://github.com/augansu" target="_blank">GitHub</a>
-        <a class="btn" href="https://github.com/augansu/nimbussoft-saas-analytics-powerbi" target="_blank">
-          Flagship Project Repository
-        </a>
+        <a class="btn primary" href="https://www.linkedin.com/in/augtweneboah-w20131201/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="btn" href="https://github.com/augansu" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn" href="https://github.com/augansu/nimbussoft-saas-analytics-powerbi" target="_blank" rel="noreferrer">Flagship Project Repo</a>
       </div>
     </div>
 
+    <!-- About -->
+    <div class="section">
+      <h2>About</h2>
+      <p>
+        I design <strong>production-grade analytics solutions</strong> that help leadership teams understand performance,
+        identify risk, and take action. My work emphasizes strong semantic modeling, governance, and executive-focused storytelling.
+      </p>
+    </div>
+
+    <!-- Featured Project -->
     <div class="section">
       <h2>Featured Project</h2>
 
       <div class="project">
-        <h3>Production-Grade SaaS Analytics Platform (NimbusSoft)</h3>
+        <p class="kicker">Power BI • SaaS Analytics • Executive Decision Support</p>
+        <h3>SaaS Product &amp; Support Analytics Platform (NimbusSoft)</h3>
 
         <p>
-          A full production-style SaaS analytics solution deployed to Power BI Service
-          using structured Dev → Test → Prod pipelines, governed semantic modeling,
-          and dynamic Row-Level Security with Entra ID security groups.
+          A production-style analytics platform designed for a fictional SaaS company (<strong>NimbusSoft</strong>),
+          reflecting patterns and approaches used in real SaaS analytics environments.
+        </p>
+
+        <p class="note">
+          <strong>New:</strong> Deployed to <strong>Power BI Service</strong> using <strong>Dev → Test → Prod</strong> pipelines,
+          <strong>on-premises gateway</strong> connectivity (PostgreSQL + file sources), and <strong>dynamic RLS</strong> using <strong>Entra ID security groups</strong>,
+          with role-based <strong>App audience segmentation</strong> (Exec, CSM, Support, Product).
         </p>
 
         <ul class="tags">
-          <li class="tag good">Deployment Pipelines</li>
-          <li class="tag">Power BI Service App Audiences</li>
-          <li class="tag">Dynamic RLS (Entra ID)</li>
-          <li class="tag">On-Prem Gateway</li>
-          <li class="tag">Star Schema Modeling</li>
-          <li class="tag">Role-Playing Dates</li>
-          <li class="tag">Performance Optimization</li>
+          <li class="tag good">Star schema semantic model</li>
+          <li class="tag">Conformed dimensions</li>
+          <li class="tag">Role-playing dates</li>
+          <li class="tag">Measure catalog</li>
+          <li class="tag">Rolling windows</li>
+          <li class="tag">Risk scoring</li>
+          <li class="tag">Performance Analyzer</li>
+          <li class="tag">Power Query Diagnostics</li>
+
+          <!-- Cloud deployment proof (new) -->
+          <li class="tag deploy">Dev/Test/Prod pipelines</li>
+          <li class="tag deploy">Entra ID dynamic RLS</li>
+          <li class="tag deploy">On-prem gateway</li>
+          <li class="tag deploy">App audiences</li>
         </ul>
 
-        <a class="btn primary"
-           href="https://github.com/augansu/nimbussoft-saas-analytics-powerbi"
-           target="_blank">
-          → View Full Architecture & Deployment Documentation
-        </a>
+        <div class="btnrow">
+          <a class="btn primary" href="https://github.com/augansu/nimbussoft-saas-analytics-powerbi" target="_blank" rel="noreferrer">
+            → View the NimbusSoft project repository
+          </a>
+
+          <a class="btn secondary" href="https://github.com/augansu/nimbussoft-saas-analytics-powerbi/blob/main/docs/powerbi-service-deployment.md" target="_blank" rel="noreferrer">
+            → View architecture &amp; deployment documentation
+          </a>
+        </div>
       </div>
     </div>
 
+    <!-- Skills -->
+    <div class="section">
+      <h2>Skills &amp; Focus Areas</h2>
+      <ul>
+        <li>Power BI (Desktop &amp; Service), Deployment Pipelines, Apps &amp; audiences</li>
+        <li>Semantic data modeling (star schemas, conformed dimensions)</li>
+        <li>Dynamic Row-Level Security (Entra ID security groups)</li>
+        <li>Gateway &amp; refresh architecture (PostgreSQL + file sources)</li>
+        <li>DAX design &amp; performance optimization</li>
+        <li>Data analysis and preparation using SQL, Python (pandas), and Excel</li>
+        <li>Analytics governance &amp; metric discipline</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Next Projects (optional placeholder) -->
+    <div class="section">
+      <h2>Next Projects</h2>
+      <p>
+        Additional portfolio projects in <strong>healthcare</strong> and <strong>finance</strong> are planned.
+        This site will be updated as new work is published.
+      </p>
+    </div>
+
     <div class="footer">
-      <span>© <span id="year"></span> Augustine Ansu</span>
-      <span>Hosted on GitHub Pages</span>
+      <span class="small">© <span id="year"></span> Augustine Ansu • Analytics Portfolio</span>
+      <span class="small">Hosted on GitHub Pages</span>
     </div>
 
   </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Optional safety: if you want the two URLs above to drive the buttons automatically,
+    // you can wire them here later. Right now, links are already hard-coded for reliability.
   </script>
 </body>
 </html>
